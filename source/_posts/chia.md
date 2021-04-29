@@ -80,6 +80,54 @@ preview:
 
 -------
 
+### 集群教程
+
+> Chia允许你在每台矿机上只运行一个收割机（harvester）程序连接到集中的一个全节点钱包（重钱包full node）上进行挖矿，而不必在每台机器上都运行完整的重钱包。采用这种模式可以让你的系统更简单，使用更少的带宽、空间、CPU，也让你的钱包秘钥更安全。全节点钱包通过UPNP或手动NAT指向（8444端口）打通外网可以连接到更多的其他钱包节点，在挖矿时，它会让你的整体农场更快、更高效。
+
+> 整个农场（矿场）的架构是由一台运行全节点钱包（重钱包full node）的主机和其他只运行收割机（harvester）的机器组成。其中只有你的全节点钱包主机器会连接到Chia网络，而其他运行收割机的矿机只需要连接你的全节点钱包即可。
+
+![](/img/chia/11.jpg)
+
+> 为了保证你的收割机和主机之间的通信安全，使用了TLS加密技术，全节点钱包主机将是签署所有证书的私人认证机构（CA）。每个收割机都必须有自己的签名证书，才能与你的全节点钱包正常通信。
+
+> 全节点钱包的安装教程本文不作叙述，需要这方面教程的可以参考《Chia挖矿教程》一文
+
+1、 首先需要从全节点钱包安装目录中将收割机（harvester）相关程序拷贝出来，通常在windows下安装的chia钱包路径为 `%LocalAppData%\chia-blockchain`，其中我们需要将 `%LocalAppData%\chia-blockchain\app-1.0.1\resources\app.asar.unpacked\daemon` 文件夹整体复制到U盘中(注意：app-1.0.1为你当前安装的chia版本号，不同版本改路径需要自行修改)
+
+2、将全节点钱包配置目录中的CA证书 (`%USERPROFILE%\.chia\mainnet\config\ssl\ca`文件夹) 复制到U盘中
+
+![](/img/chia/12.jpg)
+
+3、将U盘中的daemon、ca两个文件夹复制到收割机的C盘中。
+
+4、执行 `c:\daemon\chia.exeinit` 命令进行初始化，然后执行 `c:\daemon\chia.exeinit-cc:\ca` 命令进行CA证书授权，这样可以为不同的收割机授权唯一的通信证书来确保收割机和全节点钱包之间的通讯安全。
+
+![](/img/chia/13.jpg)
+
+5、执行 `c:\daemon\chia.exe.configure--set-farmer peer192.168.88.181:8447` 命令为收割机配置全节点钱包主机的IP地址其中192.168.88.181需要修改为你全节点钱包的实际IP地址。当然你也可以通过修改 `%USERPROFILE%\.chia\mainnet\config\config.yaml` 配置文件中的`harvester->farmer_peer->host`参数进行修改（不同版本配置文件格式可能略有不同，请仔细查找）具体见下图：
+
+![](/img/chia/14.jpg)
+
+![](/img/chia/15.jpg)
+
+6、执行 `c:\daemon\chia.exeplotsadd-d` `D:\plots\` 命令添加农田文件所在目录 `D:\plots\` 。如有多个硬盘路径，可以根据自己矿机实际情况修改`D:\plots\`后多次运行本命令
+
+7、执行 `startc:\daemon\chia.exestartharvester` 命令启动收割机程序
+
+![](/img/chia/17.jpg)
+
+8、其他收割机只需要重复以上2-7步操作即可。
+
+9、在如果需要重启或者关闭收割机程序，可以执行 `c:\daemon\chia.exestopharvester` 命令，或者执行 `c:\daemon\chia.exestopall-d` 命令可以关闭本台收割机上运行的所有chia相关程序。
+
+**注意：**
+
+1、你的路由器开启UPNP或者手动NAT指向（8444端口）确保外网可以正常访问，这样可以让全节点钱包连接到更多的其他chia节点
+
+2、需要确保全节点钱包的8447端口可以被其他机器正常访问（windows防火墙需要开启该端口）
+
+-------
+
 **`Chia`(奇亚)资料库**
 
 [`Chia`(奇亚)官网](https://www.chia.net/)
