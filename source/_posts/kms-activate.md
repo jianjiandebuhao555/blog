@@ -21,7 +21,7 @@ preview:
 
 1、右键开始图标，选择 `Windows PowerShell`(管理员)，或者命令提示符(管理员)
 
-![]('/img/Windows/Windows PowerShell.png')
+![](/img/Windows/Windows PowerShell.png)
 
 2、依次执行下面的命令
 
