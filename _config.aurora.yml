@@ -35,7 +35,6 @@ authors:
   #   description: 'Think like an artist, code like an artisan.'
   #   socials:
   #     github: https://TriDiamond.tech
-
   errgo:
     name: errgo
     avatar: '/img/avatar.png'
