@@ -94,7 +94,7 @@ preview:
 
 ```markdown
 
-C:\Users\Administrator\AppData\Local\chia-blockchain\app-1.0.5\resources\app.asar.unpacked\daemon
+C:\Users\Administrator\AppData\Local\chia-blockchain\app-1.1.2\resources\app.asar.unpacked\daemon
 
 ```
 
