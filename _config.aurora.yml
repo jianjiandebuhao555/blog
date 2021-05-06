@@ -74,27 +74,28 @@ theme:
 #! ---------------------------------------------------------------
 socials:
   github: 'https://github.com/'
+  twitter: ''
+  stackoverflow: ''
   weibo: 'https://weibo.com/'
   zhihu: 'https://www.zhihu.com/'
   csdn: 'https://blog.csdn.net/'
   juejin: 'https://juejin.cn/'
+  customs:
+    #! Example:
+    #! --- Using SVG
+    bilibili:
+      icon: iconfont icon-bilibili
+      link: https://www.bilibili.com/
 
-custom_socials:
-  ##! Example:
-  ##! --- Using SVG
-  # bilibili:
-  #   icon: http://localhost:4000/svg/bilibili.svg
-  #   link: https://live.bilibili.com/22619211
+    #! --- Using IconFont
+    baidu:
+      icon: iconfont icon-baidu
+      link: https://www.baidu.com/
 
-  ##! --- Using IconFont
-  # baidu:
-  #   icon: iconfont icon-baidu
-  #   link: https://live.bilibili.com/22619211
-
-  ##! --- Using FontAwesome
-  # book:
-  #   icon: far fa-address-book
-  #   link: https://live.bilibili.com/22619211
+    #! --- Using FontAwesome
+    book:
+      icon: far fa-address-book
+      link: https://www.book.com/
 
 #! ---------------------------------------------------------------
 #! Site Meta Configs
@@ -415,3 +416,4 @@ injects:
       '
   css:
     - <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    - <link rel="stylesheet" href="//at.alicdn.com/t/font_2476818_87vaqng7dno.css" />
