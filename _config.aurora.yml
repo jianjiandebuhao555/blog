@@ -111,7 +111,7 @@ site_meta:
 
 # For local development only!
 gitalk:
-  enable: true
+  enable: false
   autoExpand: true
   clientID: '2c90fae2556616f945a1'
   clientSecret: 'e15d9bca99a12cba9b3d72f80824c8ceded23f36'
@@ -121,7 +121,7 @@ gitalk:
   id: uid
   language: zh-CN
   distractionFreeMode: true
-  recentComment: true
+  recentComment: false
   proxy: ''
 
 # Valine comment plugin (recommended!)
