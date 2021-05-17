@@ -1,5 +1,5 @@
 ---
-title: chia
+title: chia 说明及相关教程
 tags:
   - chia
   - 教程
